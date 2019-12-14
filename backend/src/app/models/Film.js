@@ -6,7 +6,7 @@ class Film extends Model {
       {
         title: Sequelize.STRING,
         episode_id: Sequelize.INTEGER,
-        opening_crawl: Sequelize.STRING,
+        opening_crawl: Sequelize.STRING(2048),
         director: Sequelize.STRING,
         producer: Sequelize.STRING,
         release_date: Sequelize.DATE,

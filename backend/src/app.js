@@ -1,10 +1,12 @@
 import 'dotenv/config';
 
+import './lib/Sync';
 import Youch from 'youch';
 import express from 'express';
 import 'express-async-errors';
-
 import routes from './routes';
+import './app/models/Film';
+import './database';
 
 class App {
   constructor() {

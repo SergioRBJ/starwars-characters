@@ -16,7 +16,7 @@ module.exports = {
         allowNull: false,
       },
       opening_crawl: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(2048),
         allowNull: false,
       },
       director: {
