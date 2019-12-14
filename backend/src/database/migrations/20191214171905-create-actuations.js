@@ -9,14 +9,14 @@ module.exports = {
       },
       character_id: {
         type: Sequelize.INTEGER,
-        references: { model: 'characters_id', key: 'id' },
+        references: { model: 'characters', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
         allowNull: true,
       },
       film_id: {
         type: Sequelize.INTEGER,
-        references: { model: 'characters_id', key: 'id' },
+        references: { model: 'films', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
         allowNull: true,
