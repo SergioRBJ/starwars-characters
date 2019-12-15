@@ -4,7 +4,7 @@ import Avatar from '../models/Avatar';
 class FilmController {
   async index(req, res) {
     const films = await Film.findAll({
-      order: ['id'],
+      order: ['episode_id'],
       attributes: [
         'title',
         'episode_id',

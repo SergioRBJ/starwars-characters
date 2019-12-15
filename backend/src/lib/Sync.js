@@ -5,8 +5,8 @@ import Actuation from '../app/models/Actuation';
 
 class Sync {
   constructor() {
-    this.getFilms();
-    this.getCharacters();
+    // this.getFilms();
+    // this.getCharacters();
     // this.setActuations(2, 3);
   }
 
