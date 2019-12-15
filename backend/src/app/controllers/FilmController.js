@@ -6,6 +6,7 @@ class FilmController {
     const films = await Film.findAll({
       order: ['episode_id'],
       attributes: [
+        'id',
         'title',
         'episode_id',
         'opening_crawl',
