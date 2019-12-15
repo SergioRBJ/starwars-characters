@@ -1,9 +1,13 @@
 import api from '../services/api';
 import Film from '../app/models/Film';
+import Character from '../app/models/Character';
+import Actuation from '../app/models/Actuation';
 
 class Sync {
   constructor() {
-    this.getFilms();
+    // this.getFilms();
+    // this.getCharacters();
+    this.setActuations(2, 3);
   }
 
   async getFilms() {
@@ -11,7 +15,7 @@ class Sync {
 
     const { results } = response.data;
 
-    const films = results.forEach(async film => {
+    const films = await results.forEach(async film => {
       const {
         title,
         episode_id,
@@ -21,7 +25,7 @@ class Sync {
         release_date,
       } = film;
 
-      const storefilm = {
+      const storeFilm = {
         title,
         episode_id,
         opening_crawl,
@@ -33,9 +37,9 @@ class Sync {
       /*
        *If exists Validation
        */
-      const storedfilms = await Film.findOne({ where: { episode_id } });
-      if (!storedfilms) {
-        await Film.create(storefilm);
+      const storedFilms = await Film.findOne({ where: { episode_id } });
+      if (!storedFilms) {
+        await Film.create(storeFilm);
       }
     });
 
@@ -43,10 +47,51 @@ class Sync {
   }
 
   async getCharacters() {
-    const response = await api.get(`/repos/`);
+    const response = await api.get(`/people/`);
 
-    console.log(response.data);
-    return response;
+    const { results } = response.data;
+
+    const characters = await results.forEach(async char => {
+      const {
+        name,
+        height,
+        mass,
+        hair_color,
+        skin_color,
+        eye_color,
+        birth_year,
+        gender,
+      } = char;
+
+      const storedChar = {
+        name,
+        height,
+        mass,
+        hair_color,
+        skin_color,
+        eye_color,
+        birth_year,
+        gender,
+      };
+
+      /*
+       *If exists Validation
+       */
+      const charExists = await Character.findOne({ where: { name } });
+      if (!charExists) {
+        await Character.create(storedChar);
+      }
+    });
+
+    return characters;
+  }
+
+  async setActuations(characterId, filmId) {
+    const actuations = { character_id: characterId, film_id: filmId };
+
+    const storedActuation = await Actuation.create(actuations);
+
+    return storedActuation;
   }
 }
 export default new Sync();
