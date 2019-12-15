@@ -7,7 +7,7 @@ class Sync {
   constructor() {
     // this.getFilms();
     // this.getCharacters();
-    // this.setActuations(2, 3);
+    this.setActuations(2, 3);
   }
 
   async getFilms() {
