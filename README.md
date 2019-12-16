@@ -119,9 +119,11 @@ Inicie a aplicação:
 ### Rotas
 
 ``` localhost:3000/ ``` &rarr; Home Page.
+
 ![HP](https://imgur.com/j3QGB8v.jpg)
 
 ``` localhost:3000/films/:film ``` &rarr; Exibe os personagens de acordo com o filme.
+
 ![FC](https://imgur.com/szVvVdC.jpg)
 
 
