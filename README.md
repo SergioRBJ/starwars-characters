@@ -8,7 +8,7 @@ Aplicação que armazena dados de uma API externa e exibe os filmes e personagen
 ### Funcionalidades
 
     * Criação de tabelas com migrations e seeds.
-    * Criação de servidores de desenvolvimento com Docker.
+    * Criação do banco de dados de desenvolvimento com Docker.
     * Estilização e padronização do código com EditorConfig, ESLint e Prettier.
 
 ### Instalação de requisitos
@@ -51,7 +51,9 @@ DB_NAME=starwars
 
 ### Preparando a aplicação
 
-> comando deverá ser executado à partir da pasta ```backend```.
+Siga os passo a seguir na order para preparação da aplicação.
+
+> os comandos à seguir deverão ser executados à partir da pasta ```backend```.
 
 Instale os pacotes:
 ```shell
@@ -65,18 +67,24 @@ Vamos criar todas as tabelas que usaremos usando sequelize:
     $ yarn sequelize db:migrate 
 ```
 
-Populando as tabelas com dados para teste(vamos popular as imagens dos filmes. Podemos também fazer de forma manual usando a rota de upload de imagens mostrada mais à frente):
+Populando as tabelas com dados para teste - Imagens dos filmes:
 ```shell
-    $ yarn sequelize db:seed:all
+    $ yarn sequelize db:seed --seed 20191216013219-avatar-film
 ```
 
 ### Executando a aplicação
 
-> comando deverá ser executado à partir da pasta ```backend```.
-
 Inicie a aplicação:
 ```shell
     $ yarn dev
+```
+
+Populando as tabelas com dados para teste - Atuações dos personagens:
+
+> Este comando terá que ser executado pois a função de retorno das atuações está incompleta.
+
+```shell
+    $ yarn sequelize db:seed --seed 20191216101407-film-actuations
 ```
 
 Após este comando, será executada a classe de sincronismo com API swapi.co que está em ```./src/lib/Sync.js```
