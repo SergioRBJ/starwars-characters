@@ -27,7 +27,7 @@ class ActuationController {
             {
               model: Avatar,
               as: 'avatar',
-              attributes: ['url'],
+              attributes: ['name', 'path', 'url'],
             },
           ],
         },

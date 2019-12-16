@@ -12,14 +12,14 @@ module.exports = {
         references: { model: 'characters', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
-        allowNull: true,
+        allowNull: false,
       },
       film_id: {
         type: Sequelize.INTEGER,
         references: { model: 'films', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
-        allowNull: true,
+        allowNull: false,
       },
       created_at: {
         type: Sequelize.DATE,

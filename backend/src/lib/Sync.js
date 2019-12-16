@@ -5,9 +5,9 @@ import Actuation from '../app/models/Actuation';
 
 class Sync {
   constructor() {
-    // this.getFilms();
-    // this.getCharacters();
-    this.setActuations(2, 3);
+    this.getFilms();
+    this.getCharacters();
+    // this.setActuations(1, 1);
   }
 
   async getFilms() {
@@ -46,8 +46,8 @@ class Sync {
     return films;
   }
 
-  async getCharacters() {
-    const response = await api.get(`/people/`);
+  async getCharacters(page = 9) {
+    const response = await api.get(`/people/?page=${page}`);
 
     const { results } = response.data;
 
@@ -77,17 +77,24 @@ class Sync {
       /*
        *If exists Validation
        */
-      const charExists = await Character.findOne({ where: { name } });
-      if (!charExists) {
-        await Character.create(storedChar);
-      }
+      // const charExists = await Character.findAll({ where: { name } });
+      // if (!charExists) {
+      await Character.create(storedChar);
+      // }
     });
+
+    // if (page <= 9) {
+    // await this.getCharacters(page + 1);
+    // }
 
     return characters;
   }
 
   async setActuations(characterId, filmId) {
-    const actuations = { character_id: characterId, film_id: filmId };
+    const actuations = {
+      character_id: characterId,
+      film_id: filmId,
+    };
 
     const storedActuation = await Actuation.create(actuations);
 
