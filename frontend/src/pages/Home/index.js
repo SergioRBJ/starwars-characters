@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import api from '../../services/api';
 import { FilmList, CharButton } from './styles';
 
+import image from '../../assets/images/default-film.jpg';
+
 export default class Home extends Component {
   state = {
     films: [],

@@ -4,6 +4,12 @@ module.exports = {
       'avatars',
       [
         {
+          name: 'ang-film-bg.jpg',
+          path: '2a2aff31c95117f5de2125a84249a13f.jpg',
+          created_at: new Date(),
+          updated_at: new Date(),
+        },
+        {
           name: 'aotc-film-bg.jpg',
           path: '52edbced1489bd26320d6a14bb5f9ccf.jpg',
           created_at: new Date(),
@@ -28,20 +34,14 @@ module.exports = {
           updated_at: new Date(),
         },
         {
-          name: 'tfa.jpg',
-          path: 'a119553d40175ceca095c904bc2ded5f.jpg',
-          created_at: new Date(),
-          updated_at: new Date(),
-        },
-        {
           name: 'tesb-film-bg.jpg',
           path: '567fd8274b7a7c1bde7faf1bdeff8c29.jpg',
           created_at: new Date(),
           updated_at: new Date(),
         },
         {
-          name: 'ang-film-bg.jpg',
-          path: '2a2aff31c95117f5de2125a84249a13f.jpg',
+          name: 'tfa.jpg',
+          path: 'a119553d40175ceca095c904bc2ded5f.jpg',
           created_at: new Date(),
           updated_at: new Date(),
         },

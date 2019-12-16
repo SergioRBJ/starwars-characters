@@ -5,8 +5,8 @@ class Character extends Model {
     super.init(
       {
         name: Sequelize.STRING,
-        height: Sequelize.INTEGER,
-        mass: Sequelize.INTEGER,
+        height: Sequelize.STRING,
+        mass: Sequelize.STRING,
         hair_color: Sequelize.STRING,
         skin_color: Sequelize.STRING,
         eye_color: Sequelize.STRING,

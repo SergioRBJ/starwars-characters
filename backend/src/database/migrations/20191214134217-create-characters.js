@@ -12,11 +12,11 @@ module.exports = {
         allowNull: false,
       },
       height: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       mass: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
       },
       hair_color: {

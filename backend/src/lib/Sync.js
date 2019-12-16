@@ -15,6 +15,7 @@ class Sync {
 
     const { results } = response.data;
 
+    let cont = 0;
     const films = await results.forEach(async film => {
       const {
         title,
@@ -32,6 +33,7 @@ class Sync {
         director,
         producer,
         release_date: new Date(release_date),
+        avatar_id: `${(cont += 1)}`,
       };
 
       /*
