@@ -2,12 +2,7 @@ import Sequelize, { Model } from 'sequelize';
 
 class Actuation extends Model {
   static init(sequelize) {
-    super.init(
-      {
-        type: Sequelize.STRING,
-      },
-      { sequelize }
-    );
+    super.init({}, { sequelize });
 
     return this;
   }

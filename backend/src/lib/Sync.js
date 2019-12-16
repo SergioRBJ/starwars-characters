@@ -48,7 +48,7 @@ class Sync {
     return films;
   }
 
-  async getCharacters(page = 9) {
+  async getCharacters(page = 1) {
     const response = await api.get(`/people/?page=${page}`);
 
     const { results } = response.data;
