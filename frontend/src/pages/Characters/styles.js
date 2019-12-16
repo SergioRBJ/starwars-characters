@@ -7,6 +7,7 @@ export const CharList = styled.ul`
   grid-gap: 20px;
   list-style: none;
   flex: 1;
+  margin-top: 30px;
 
   > li {
     display: flex;
