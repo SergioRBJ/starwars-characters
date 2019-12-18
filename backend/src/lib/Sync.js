@@ -48,7 +48,7 @@ class Sync {
   async handleCharacters(page = 1) {
     const response = await api.get(`/people/?page=${page}`);
 
-    const { results } = response.data;
+    const { next, results } = response.data;
 
     const characters = await results.forEach(async char => {
       const {
@@ -102,9 +102,16 @@ class Sync {
           await charCreated.setFilms(actuations);
         }
       }
-
-      return characters;
     });
+
+    /*
+     * Handles pagination.
+     */
+    if (next) {
+      await this.handleCharacters(page + 1);
+    }
+
+    return characters;
   }
 }
 export default new Sync();
