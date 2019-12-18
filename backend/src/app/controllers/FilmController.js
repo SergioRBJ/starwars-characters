@@ -1,4 +1,5 @@
 import Film from '../models/Film';
+import Character from '../models/Character';
 import Avatar from '../models/Avatar';
 
 class FilmController {
@@ -19,6 +20,11 @@ class FilmController {
           model: Avatar,
           as: 'avatar',
           attributes: ['name', 'path', 'url'],
+        },
+        {
+          model: Character,
+          as: 'characters',
+          through: { attributes: [] },
         },
       ],
     });
