@@ -1,22 +1,19 @@
 import api from '../services/api';
 import Film from '../app/models/Film';
 import Character from '../app/models/Character';
-import Actuation from '../app/models/Actuation';
 
 class Sync {
   constructor() {
-    this.getFilms();
-    this.getCharacters();
-    // this.setActuations(1, 1);
+    this.handleFilms();
   }
 
-  async getFilms() {
+  async handleFilms() {
     const response = await api.get('/films');
 
     const { results } = response.data;
 
     let cont = 0;
-    const films = await results.forEach(async film => {
+    await results.forEach(async film => {
       const {
         title,
         episode_id,
@@ -45,10 +42,10 @@ class Sync {
       }
     });
 
-    return films;
+    return this.handleCharacters();
   }
 
-  async getCharacters(page = 1) {
+  async handleCharacters(page = 1) {
     const response = await api.get(`/people/?page=${page}`);
 
     const { results } = response.data;
@@ -63,6 +60,7 @@ class Sync {
         eye_color,
         birth_year,
         gender,
+        films,
       } = char;
 
       const storedChar = {
@@ -77,30 +75,36 @@ class Sync {
       };
 
       /*
-       *If exists Validation
+       * If exists Validation
        */
-      // const charExists = await Character.findAll({ where: { name } });
-      // if (!charExists) {
-      await Character.create(storedChar);
-      // }
+      const charExists = await Character.findOne({ where: { name } });
+      if (!charExists) {
+        /*
+         * Store characters into db.
+         */
+        const charCreated = await Character.create(storedChar);
+
+        if (films && films.length > 0) {
+          /*
+           * Get film id.
+           */
+          const actuations = films.map(film => {
+            const idFilm = Number(
+              film.substring(film.length - 2, film.length - 1)
+            );
+
+            return idFilm;
+          });
+
+          /*
+           * Store relations with films.
+           */
+          await charCreated.setFilms(actuations);
+        }
+      }
+
+      return characters;
     });
-
-    // if (page <= 9) {
-    // await this.getCharacters(page + 1);
-    // }
-
-    return characters;
-  }
-
-  async setActuations(characterId, filmId) {
-    const actuations = {
-      character_id: characterId,
-      film_id: filmId,
-    };
-
-    const storedActuation = await Actuation.create(actuations);
-
-    return storedActuation;
   }
 }
 export default new Sync();

@@ -10,14 +10,12 @@ module.exports = {
       character_id: {
         type: Sequelize.INTEGER,
         references: { model: 'characters', key: 'id' },
-        onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
         allowNull: false,
       },
       film_id: {
         type: Sequelize.INTEGER,
         references: { model: 'films', key: 'id' },
-        onUpdate: 'CASCADE',
         onDelete: 'CASCADE',
         allowNull: false,
       },

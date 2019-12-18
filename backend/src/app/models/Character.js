@@ -21,6 +21,12 @@ class Character extends Model {
 
   static associate(models) {
     this.belongsTo(models.Avatar, { foreignKey: 'avatar_id', as: 'avatar' });
+
+    this.belongsToMany(models.Film, {
+      through: 'actuations',
+      as: 'films',
+      foreignKey: 'character_id',
+    });
   }
 }
 

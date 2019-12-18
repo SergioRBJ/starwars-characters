@@ -3,11 +3,10 @@ import Sequelize from 'sequelize';
 import Film from '../app/models/Film';
 import Character from '../app/models/Character';
 import Avatar from '../app/models/Avatar';
-import Actuation from '../app/models/Actuation';
 
 import databaseConfig from '../config/database';
 
-const models = [Avatar, Actuation, Character, Film];
+const models = [Avatar, Character, Film];
 
 class Database {
   constructor() {
