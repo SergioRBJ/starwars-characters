@@ -19,4 +19,7 @@ routes.post('/avatar/:id/:ent/', upload.single('file'), AvatarController.store);
 // Get all films
 routes.get('/films/', FilmController.index);
 
+// Get film by id
+routes.get('/films/:id', FilmController.show);
+
 export default routes;

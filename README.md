@@ -87,7 +87,7 @@ Após este comando, será executada a classe de sincronismo com API swapi.co que
 Rota que adiciona uma imagem a categoria selecionada via multipart:
 ``` /avatar/:id/:ent/ ```
 
-```:id``` &rarr; id do filme ou personagem que receberá a imagem.
+```:id``` &rarr; Id do filme ou personagem que receberá a imagem.
 
 ```:ent``` &rarr; Entidade na qual será feito o upload('Character' ou 'Film').
 
@@ -98,6 +98,16 @@ Rota que retorna todos os filmes e personagens.
 ```/films/```
 
 ![R3](https://imgur.com/zjpdJ4h.jpg)
+
+Rota que retorna o filme e personagens dele pelo id.
+
+```/films/:id```
+
+```:id``` &rarr; Id do filme.
+
+![R4](https://imgur.com/DZzthAy.jpg)
+
+
 
 ## Frontend - React.js
 

@@ -31,6 +31,35 @@ class FilmController {
 
     return res.json(films);
   }
+
+  async show(req, res) {
+    const films = await Film.findOne({
+      attributes: [
+        'id',
+        'title',
+        'episode_id',
+        'opening_crawl',
+        'director',
+        'producer',
+        'release_date',
+      ],
+      include: [
+        {
+          model: Avatar,
+          as: 'avatar',
+          attributes: ['name', 'path', 'url'],
+        },
+        {
+          model: Character,
+          as: 'characters',
+          through: { attributes: [] },
+        },
+      ],
+      where: { id: req.params.id }
+    });
+
+    return res.json(films);
+  }
 }
 
 export default new FilmController();
