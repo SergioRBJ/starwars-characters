@@ -22,7 +22,7 @@ export default class Home extends Component {
       <FilmList>
         {films.map(film => (
           <li key={film.id}>
-            <img src={film.avatar.url} alt={film.title} />
+            <img src={film.avatar.url || image} alt={film.title} />
             <CharButton to={`/characters/films/${encodeURIComponent(film.id)}`}>
               <span>CHARACTERS</span>
             </CharButton>

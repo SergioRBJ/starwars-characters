@@ -28,9 +28,9 @@ export default class Characters extends Component {
 
     const filmId = decodeURIComponent(match.params.film);
 
-    const response = await api.get(`/actuations/${filmId}`);
+    const response = await api.get(`/films/${filmId}`);
 
-    this.setState({ characters: response.data });
+    this.setState({ characters: response.data.characters });
 
     this.setState({ film: filmId });
   }
@@ -42,40 +42,40 @@ export default class Characters extends Component {
       <CharList>
         {characters.map(char => (
           <>
-            <li key={char.character.name}>
+            <li key={char.name}>
               <img
-                src={image || char.character.avatar.url}
-                alt={char.character.name}
+                src={image || char.avatar.url}
+                alt={char.name}
               />
-              <strong>{char.character.name}</strong>
+              <strong>{char.name}</strong>
               <CharDetails>
                 <li>
                   <span>Height</span>
-                  <span>{char.character.height}</span>
+                  <span>{char.height}</span>
                 </li>
                 <li>
                   <span>Mass</span>
-                  <span>{char.character.mass}</span>
+                  <span>{char.mass}</span>
                 </li>
                 <li>
                   <span>Skin Color</span>
-                  <span>{char.character.skin_color}</span>
+                  <span>{char.skin_color}</span>
                 </li>
                 <li>
                   <span>Eye Color</span>
-                  <span>{char.character.eye_color}</span>
+                  <span>{char.eye_color}</span>
                 </li>
                 <li>
                   <span>Hair Color</span>
-                  <span>{char.character.hair_color}</span>
+                  <span>{char.hair_color}</span>
                 </li>
                 <li>
                   <span>Birth Year</span>
-                  <span>{char.character.birth_year}</span>
+                  <span>{char.birth_year}</span>
                 </li>
                 <li>
                   <span>Gender</span>
-                  <span>{char.character.gender}</span>
+                  <span>{char.gender}</span>
                 </li>
               </CharDetails>
             </li>
