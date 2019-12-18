@@ -10,6 +10,8 @@ Aplicação que armazena dados de uma API externa e exibe os filmes e personagen
     * Criação de tabelas com migrations e seeds.
     * Criação do banco de dados de desenvolvimento com Docker.
     * Estilização e padronização do código com EditorConfig, ESLint e Prettier.
+    * Upload de imagens com Multer.
+    * Gerenciamento de rotas com Express.
 
 ### Instalação de requisitos
 1. [Node](https://nodejs.org/en/download/package-manager/) &rarr; recomendo a instalação via package manager.
@@ -62,12 +64,12 @@ Instale os pacotes:
 
 ### Criação das tabelas com migrations
 
-Vamos criar todas as tabelas que usaremos usando sequelize:
+Vamos criar todas as tabelas que usaremos usando migrations:
 ```shell
     $ yarn sequelize db:migrate 
 ```
 
-Populando as tabelas com dados para teste - Imagens dos filmes:
+Populando as tabelas com dados para teste usando seeds - Imagens dos filmes:
 ```shell
     $ yarn sequelize db:seed --seed 20191216013219-avatar-film
 ```
@@ -78,35 +80,24 @@ Inicie a aplicação:
 ```shell
     $ yarn dev
 ```
-
-Populando as tabelas com dados para teste - Atuações dos personagens:
-
-> Este comando terá que ser executado pois a função de retorno das atuações está incompleta.
-
-```shell
-    $ yarn sequelize db:seed --seed 20191216101407-film-actuations
-```
-
 Após este comando, será executada a classe de sincronismo com API swapi.co que está em ```./src/lib/Sync.js```
 
 ### Rotas
 
-Rota que adiciona uma imagem a categoria selecionada:
+Rota que adiciona uma imagem a categoria selecionada via multipart:
 ``` /avatar/:id/:ent/ ```
 
-```:ent``` &rarr; Entidade na qual será feito o upload('Character' ou 'Film').
 ```:id``` &rarr; id do filme ou personagem que receberá a imagem.
+
+```:ent``` &rarr; Entidade na qual será feito o upload('Character' ou 'Film').
+
 ![R1](https://i.imgur.com/cpNGgPF.png)
 
-Rota que retorna todos os personagens que atuaram no filme.
-``` /actuations/:film/ ```
+Rota que retorna todos os filmes e personagens.
 
-```:film``` &rarr; id do filme que deseja resgatar os personagens.
-![R2](https://imgur.com/pF4Aj5h.jpg)
+```/films/```
 
-Rota que retorna todos os filmes.
-```/films/ ```
-![R3](https://imgur.com/fJ6F0iW.jpg)
+![R3](https://imgur.com/zjpdJ4h.jpg)
 
 ## Frontend - React.js
 
@@ -128,11 +119,11 @@ Inicie a aplicação:
 
 ``` localhost:3000/ ``` &rarr; Home Page.
 
-![HP](https://imgur.com/j3QGB8v.jpg)
+![HP](https://imgur.com/27wyLd6.jpg)
 
 ``` localhost:3000/films/:film ``` &rarr; Exibe os personagens de acordo com o filme.
 
-![FC](https://imgur.com/szVvVdC.jpg)
+![FC](https://imgur.com/oTZmprX.jpg)
 
 
 
