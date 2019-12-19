@@ -22,7 +22,7 @@ Aplicação que armazena dados de uma API externa e exibe os filmes e personagen
 
 Iremos configurar a base de dados que usaremos nesta aplicação:
 
-1. [Postgres](https://www.postgresql.org/) &rarr; armazenará os dados estruturados.
+1. [Postgres](https://www.postgresql.org/) &rarr; armazenará os dados da API externa.
 
 Com o Docker iniciado e execute o comando abaixo:
 
@@ -39,7 +39,7 @@ Depois do servidor configurado, crie seu arquivo ```.env``` na raiz pois temos q
 1. APP &rarr; Váriaveis da aplicação.
 2. DATABASE &rarr; Váriaveis dos servidores usados na aplicação
 
-Iremos usar estar credenciais:
+Iremos usar estas credenciais:
 
 ```
 APP_URL=http://localhost:3333
@@ -53,7 +53,7 @@ DB_NAME=starwars
 
 ### Preparando a aplicação
 
-Siga os passo a seguir na order para preparação da aplicação.
+Siga os passos a seguir na order para preparação da aplicação.
 
 > os comandos à seguir deverão ser executados à partir da pasta ```backend```.
 
