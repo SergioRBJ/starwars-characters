@@ -44,7 +44,7 @@ export default class Characters extends Component {
           <>
             <li key={char.name}>
               <img
-                src={image || char.avatar.url}
+                src={ char.avatar ? char.avatar.url : image }
                 alt={char.name}
               />
               <strong>{char.name}</strong>

@@ -53,6 +53,9 @@ class FilmController {
           model: Character,
           as: 'characters',
           through: { attributes: [] },
+          include: [{model: Avatar,
+                    as:'avatar',
+                    attributes: ['name', 'path', 'url']}]
         },
       ],
       where: { id: req.params.id }

@@ -13,7 +13,7 @@ export default createGlobalStyle`
   }
 
   body {
-    background: url(${background}) no-repeat center center fixed;
+  background: url(${background}) center center fixed;
     -webkit-font-smoothing: antialiased;
     -webkit-background-size: cover;
     -moz-background-size: cover;

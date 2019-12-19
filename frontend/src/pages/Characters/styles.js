@@ -32,7 +32,7 @@ export const CharList = styled.ul`
     align-self: center;
     width: 150px;
     height: 150px;
-    border: 1px solid #9999;
+    border: 3px solid ${darken(0.4, '#2f4f4f')};
     border-radius: 5px;
     border-radius: 50%;
   }
