@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import api from '../../services/api';
-import { FilmList, CharButton } from './styles';
+import { FilmList } from './styles';
+import { Link } from 'react-router-dom';
 
 import image from '../../assets/images/default-film.jpg';
 
@@ -22,10 +23,10 @@ export default class Home extends Component {
       <FilmList>
         {films.map(film => (
           <li key={film.id}>
+            <Link to={`/characters/films/${encodeURIComponent(film.id)}`}>
             <img src={film.avatar.url || image} alt={film.title} />
-            <CharButton to={`/characters/films/${encodeURIComponent(film.id)}`}>
-              <span>CHARACTERS</span>
-            </CharButton>
+
+            </Link>
           </li>
         ))}
       </FilmList>

@@ -7,8 +7,29 @@ export const CharList = styled.ul`
   grid-gap: 20px;
   list-style: none;
   flex: 1;
-  margin-top: 30px;
+  margin-top: 20px;
+  height: calc(100vh - 210px);
+  overflow-y: scroll;
+  position: relative;
 
+  ::-webkit-scrollbar {
+    width: 10px;
+    width: 7px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(204, 204, 204, 0.8);
+    box-shadow: inset 0px 0 3px rgba(131, 130, 130, 0.5);
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  animation: fadeIn 0.8s ease-in;
   > li {
     display: flex;
     flex-direction: column;
